@@ -5,6 +5,8 @@ public class Funcionario extends FuncionarioBase {
 
     public Funcionario(String nome, double salarioBase) {
         super(nome, salarioBase);
+        this.nome = nome;
+        this.salarioBase = salarioBase;
     }
 
     
@@ -39,10 +41,11 @@ public class Funcionario extends FuncionarioBase {
         return calcularSalario() + bonusAdicional;
     }
 
+
+
     @Override
     public String toString() {
-        System.out.println("o Funcionario" + this.nome + "recebe um salario de " + this.salarioBase);
-        return nome;
+        return "um Funcionario chamado " + nome + ", com o salario base de " + salarioBase + "\n";
     }
 
     

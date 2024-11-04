@@ -1,23 +1,23 @@
 public class Gerente extends FuncionarioBase implements beneficioInterface {
 
-    protected String nomeGerente;
-    protected double salarioBaseGerente;
+    protected String nome;
+    protected double salarioBase;
     protected double bonus;
 
 
-    public Gerente(String nome, double salarioBase, String nomeGerente, double salarioBaseGerente, double bonus) {
+    public Gerente(String nome, double salarioBase,double bonus) {
         super(nome, salarioBase);
-        nome = nomeGerente;
-        salarioBase = salarioBaseGerente;
-        bonus = bonus;
+        this.nome = nome;
+        this.salarioBase = salarioBase;
+        this.bonus = bonus;
     }
 
-    public String getNomeGerente() {
-        return nomeGerente;
+    public String getNome() {
+        return nome;
     }
 
-    public double getSalarioBaseGerente() {
-        return salarioBaseGerente;
+    public double getSalarioBase() {
+        return salarioBase;
     }
 
     public double getBonus() {
@@ -27,7 +27,7 @@ public class Gerente extends FuncionarioBase implements beneficioInterface {
     @Override
     public double calcularSalario() {
 
-        double salarioAtual = salarioBaseGerente + (salarioBaseGerente * this.bonus);
+        double salarioAtual = this.salarioBase + (this.salarioBase * this.bonus);
         return salarioAtual;
     }
 
@@ -40,12 +40,19 @@ public class Gerente extends FuncionarioBase implements beneficioInterface {
 
     @Override
     public double calcularBonus(double Percentual) {
-        return this.salarioBaseGerente * Percentual;
+        return this.salarioBase * Percentual;
     }
 
     @Override
     public double calcularAuxilioMoradia(double valorFixado) {
         return valorFixado;
     }
+
+    @Override
+    public String toString() {
+        return   "Um Gerente chamado " + nome + " , com salarioBase de " + salarioBase + " e bonusPercentual de " + bonus + "\n";
+    }
+
+    
 
 }

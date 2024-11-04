@@ -2,27 +2,43 @@ import java.util.ArrayList;
 
 public class Departamento {
 
-    public static void main(String[] args) {
-    
-        
-        String nome;
+    private String nome;
+    private ArrayList<FuncionarioBase> funcionarios;
 
-        ArrayList<FuncionarioBase> funcionarios = new ArrayList<>();
-
-        FuncionarioBase f1 = new Diretor(nome, 0, nome, 0, 0);
-    
-        funcionarios.add(new Funcionario( "Joao", 1000));
-        funcionarios.add(new Funcionario("Nome", 1000));
-        
-        for(int i = 0; i < funcionarios.size(); i++){
-
-            System.out.println(funcionarios.get(i));
-        };
-
-
-        
+    public Departamento(String nome) {
+        this.nome = nome;
+        this.funcionarios = new ArrayList<FuncionarioBase>();
     }
-  
-    
+
+    public void addFunc(FuncionarioBase funcionario) {
+        funcionarios.add(funcionario);
+    }
+
+    public void removeFunc(FuncionarioBase funcionario) {
+        funcionarios.remove(funcionario);
+    }
+
+    public double calcFolha() {
+        double calcTotal = 0.0;
+        for (FuncionarioBase funcionario : funcionarios) {
+                
+                calcTotal += funcionario.calcularSalario();
+        }
+        return calcTotal;
+    }
+
+    public ArrayList<FuncionarioBase> getFuncionarios() {
+        return funcionarios;
+    }
+
+    public void setFuncionarios(ArrayList<FuncionarioBase> funcionarios) {
+        this.funcionarios = funcionarios;
+    }
+
+    @Override
+    public String toString() {
+ 
+        return  "\n" + funcionarios + "\n"  ;
+    }
 
 }

@@ -12,4 +12,5 @@ public abstract class FuncionarioBase {
     public abstract double calcularSalario(double bonusAdicional);
 
 
+
 }
